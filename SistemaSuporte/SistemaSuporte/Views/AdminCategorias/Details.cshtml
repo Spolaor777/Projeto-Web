@@ -1,0 +1,25 @@
+﻿@model SistemaSuporte.Models.Categoria
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Detalhes da Categoria";
+}
+
+<div class="painel-dashboard">
+
+    <h1>Detalhes</h1>
+
+    <div class="form-admin">
+        <p><strong>Nome:</strong> @Model.NomeCategoria</p>
+        <p><strong>Descrição:</strong> @Model.DescricaoCategoria</p>
+
+        <a asp-action="Edit" asp-controller="AdminCategorias"
+           asp-route-id="@Model.CategoriaId"
+           class="btn-admin btn-admin-primary">Editar</a>
+
+        <a asp-action="Index" asp-controller="AdminCategorias"
+           class="btn-admin btn-admin-secondary">Voltar</a>
+    </div>
+
+</div>
+

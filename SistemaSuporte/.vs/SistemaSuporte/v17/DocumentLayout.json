@@ -1,0 +1,139 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\lucas\\Downloads\\SistemaSuporte100 (8)\\SistemaSuporte100 (8)\\SistemaSuporte100\\SistemaSuporte\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0E276D5F-5A54-4304-BD72-A0A053F625F3}|SistemaSuporte\\SistemaSuporte.csproj|c:\\users\\lucas\\downloads\\sistemasuporte100 (8)\\sistemasuporte100 (8)\\sistemasuporte100\\sistemasuporte\\sistemasuporte\\services\\openaiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E276D5F-5A54-4304-BD72-A0A053F625F3}|SistemaSuporte\\SistemaSuporte.csproj|solutionrelative:sistemasuporte\\services\\openaiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E276D5F-5A54-4304-BD72-A0A053F625F3}|SistemaSuporte\\SistemaSuporte.csproj|c:\\users\\lucas\\downloads\\sistemasuporte100 (8)\\sistemasuporte100 (8)\\sistemasuporte100\\sistemasuporte\\sistemasuporte\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E276D5F-5A54-4304-BD72-A0A053F625F3}|SistemaSuporte\\SistemaSuporte.csproj|solutionrelative:sistemasuporte\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E276D5F-5A54-4304-BD72-A0A053F625F3}|SistemaSuporte\\SistemaSuporte.csproj|c:\\users\\lucas\\downloads\\sistemasuporte100 (8)\\sistemasuporte100 (8)\\sistemasuporte100\\sistemasuporte\\sistemasuporte\\controllers\\admincategoriascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E276D5F-5A54-4304-BD72-A0A053F625F3}|SistemaSuporte\\SistemaSuporte.csproj|solutionrelative:sistemasuporte\\controllers\\admincategoriascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E276D5F-5A54-4304-BD72-A0A053F625F3}|SistemaSuporte\\SistemaSuporte.csproj|c:\\users\\lucas\\downloads\\sistemasuporte100 (8)\\sistemasuporte100 (8)\\sistemasuporte100\\sistemasuporte\\sistemasuporte\\models\\chatmensagem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E276D5F-5A54-4304-BD72-A0A053F625F3}|SistemaSuporte\\SistemaSuporte.csproj|solutionrelative:sistemasuporte\\models\\chatmensagem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E276D5F-5A54-4304-BD72-A0A053F625F3}|SistemaSuporte\\SistemaSuporte.csproj|c:\\users\\lucas\\downloads\\sistemasuporte100 (8)\\sistemasuporte100 (8)\\sistemasuporte100\\sistemasuporte\\sistemasuporte\\models\\chamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E276D5F-5A54-4304-BD72-A0A053F625F3}|SistemaSuporte\\SistemaSuporte.csproj|solutionrelative:sistemasuporte\\models\\chamado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E276D5F-5A54-4304-BD72-A0A053F625F3}|SistemaSuporte\\SistemaSuporte.csproj|c:\\users\\lucas\\downloads\\sistemasuporte100 (8)\\sistemasuporte100 (8)\\sistemasuporte100\\sistemasuporte\\sistemasuporte\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E276D5F-5A54-4304-BD72-A0A053F625F3}|SistemaSuporte\\SistemaSuporte.csproj|solutionrelative:sistemasuporte\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E276D5F-5A54-4304-BD72-A0A053F625F3}|SistemaSuporte\\SistemaSuporte.csproj|c:\\users\\lucas\\downloads\\sistemasuporte100 (8)\\sistemasuporte100 (8)\\sistemasuporte100\\sistemasuporte\\sistemasuporte\\filtro\\usuarioautenticado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E276D5F-5A54-4304-BD72-A0A053F625F3}|SistemaSuporte\\SistemaSuporte.csproj|solutionrelative:sistemasuporte\\filtro\\usuarioautenticado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 100,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AdminCategoriasController.cs",
+              "DocumentMoniker": "C:\\Users\\lucas\\Downloads\\SistemaSuporte100 (8)\\SistemaSuporte100 (8)\\SistemaSuporte100\\SistemaSuporte\\SistemaSuporte\\Controllers\\AdminCategoriasController.cs",
+              "RelativeDocumentMoniker": "SistemaSuporte\\Controllers\\AdminCategoriasController.cs",
+              "ToolTip": "C:\\Users\\lucas\\Downloads\\SistemaSuporte100 (8)\\SistemaSuporte100 (8)\\SistemaSuporte100\\SistemaSuporte\\SistemaSuporte\\Controllers\\AdminCategoriasController.cs",
+              "RelativeToolTip": "SistemaSuporte\\Controllers\\AdminCategoriasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T23:13:46.746Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ChatMensagem.cs",
+              "DocumentMoniker": "C:\\Users\\lucas\\Downloads\\SistemaSuporte100 (8)\\SistemaSuporte100 (8)\\SistemaSuporte100\\SistemaSuporte\\SistemaSuporte\\Models\\ChatMensagem.cs",
+              "RelativeDocumentMoniker": "SistemaSuporte\\Models\\ChatMensagem.cs",
+              "ToolTip": "C:\\Users\\lucas\\Downloads\\SistemaSuporte100 (8)\\SistemaSuporte100 (8)\\SistemaSuporte100\\SistemaSuporte\\SistemaSuporte\\Models\\ChatMensagem.cs",
+              "RelativeToolTip": "SistemaSuporte\\Models\\ChatMensagem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T23:13:44.092Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Chamado.cs",
+              "DocumentMoniker": "C:\\Users\\lucas\\Downloads\\SistemaSuporte100 (8)\\SistemaSuporte100 (8)\\SistemaSuporte100\\SistemaSuporte\\SistemaSuporte\\Models\\Chamado.cs",
+              "RelativeDocumentMoniker": "SistemaSuporte\\Models\\Chamado.cs",
+              "ToolTip": "C:\\Users\\lucas\\Downloads\\SistemaSuporte100 (8)\\SistemaSuporte100 (8)\\SistemaSuporte100\\SistemaSuporte\\SistemaSuporte\\Models\\Chamado.cs",
+              "RelativeToolTip": "SistemaSuporte\\Models\\Chamado.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T23:13:39.083Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Categoria.cs",
+              "DocumentMoniker": "C:\\Users\\lucas\\Downloads\\SistemaSuporte100 (8)\\SistemaSuporte100 (8)\\SistemaSuporte100\\SistemaSuporte\\SistemaSuporte\\Models\\Categoria.cs",
+              "RelativeDocumentMoniker": "SistemaSuporte\\Models\\Categoria.cs",
+              "ToolTip": "C:\\Users\\lucas\\Downloads\\SistemaSuporte100 (8)\\SistemaSuporte100 (8)\\SistemaSuporte100\\SistemaSuporte\\SistemaSuporte\\Models\\Categoria.cs",
+              "RelativeToolTip": "SistemaSuporte\\Models\\Categoria.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T23:13:30.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UsuarioAutenticado.cs",
+              "DocumentMoniker": "C:\\Users\\lucas\\Downloads\\SistemaSuporte100 (8)\\SistemaSuporte100 (8)\\SistemaSuporte100\\SistemaSuporte\\SistemaSuporte\\Filtro\\UsuarioAutenticado.cs",
+              "RelativeDocumentMoniker": "SistemaSuporte\\Filtro\\UsuarioAutenticado.cs",
+              "ToolTip": "C:\\Users\\lucas\\Downloads\\SistemaSuporte100 (8)\\SistemaSuporte100 (8)\\SistemaSuporte100\\SistemaSuporte\\SistemaSuporte\\Filtro\\UsuarioAutenticado.cs",
+              "RelativeToolTip": "SistemaSuporte\\Filtro\\UsuarioAutenticado.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T22:09:39.989Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OpenAIService.cs",
+              "DocumentMoniker": "C:\\Users\\lucas\\Downloads\\SistemaSuporte100 (8)\\SistemaSuporte100 (8)\\SistemaSuporte100\\SistemaSuporte\\SistemaSuporte\\Services\\OpenAIService.cs",
+              "RelativeDocumentMoniker": "SistemaSuporte\\Services\\OpenAIService.cs",
+              "ToolTip": "C:\\Users\\lucas\\Downloads\\SistemaSuporte100 (8)\\SistemaSuporte100 (8)\\SistemaSuporte100\\SistemaSuporte\\SistemaSuporte\\Services\\OpenAIService.cs",
+              "RelativeToolTip": "SistemaSuporte\\Services\\OpenAIService.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwHUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T22:08:19.29Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\lucas\\Downloads\\SistemaSuporte100 (8)\\SistemaSuporte100 (8)\\SistemaSuporte100\\SistemaSuporte\\SistemaSuporte\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "SistemaSuporte\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\lucas\\Downloads\\SistemaSuporte100 (8)\\SistemaSuporte100 (8)\\SistemaSuporte100\\SistemaSuporte\\SistemaSuporte\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "SistemaSuporte\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAgwAcAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T22:08:11.295Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+﻿@model SistemaSuporte.Models.Chamado
+
+
+@{
+    Layout = "~/Views/Shared/_LayoutCliente.cshtml";
+    ViewData["Title"] = "Editar Chamado";
+}
+
+<link rel="stylesheet" href="~/css/cliente.css" />
+
+<section class="painel">
+    <h1>✏️ Editar Chamado</h1>
+    <p>Atualize as informações necessárias. Seu chamado continuará sendo acompanhado normalmente.</p>
+
+    <form asp-action="Edit" method="post">
+
+        <input type="hidden" asp-for="ChamadoId" />
+        <input type="hidden" asp-for="UsuarioId" />
+        <input type="hidden" asp-for="Status" />
+        <input type="hidden" asp-for="DataAbertura" />
+        <input type="hidden" asp-for="DataFechamento" />
+
+        <!-- Categoria -->
+        <div class="grupo-formulario">
+            <label>Categoria</label>
+            <select asp-for="CategoriaId"
+                    asp-items="ViewBag.CategoriaId"
+                    class="input-padrao">
+            </select>
+        </div>
+
+        <!-- Título -->
+        <div class="grupo-formulario">
+            <label>Título</label>
+            <input asp-for="Titulo" class="input-padrao" placeholder="Digite o título do problema" />
+        </div>
+
+        <!-- Descrição -->
+        <div class="grupo-formulario">
+            <label>Descrição</label>
+            <textarea asp-for="Descricao" class="input-padrao" rows="5"
+                      placeholder="Descreva com detalhes o que está acontecendo"></textarea>
+        </div>
+
+        <div class="botoes-acao">
+            <button type="submit" class="btn-salvar">Salvar alterações</button>
+            <a asp-action="Details" asp-route-id="@Model.ChamadoId" class="btn-cancelar">Cancelar</a>
+        </div>
+    </form>
+</section>
+
+<style>
+    .input-padrao {
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid #cbd5e1;
+        background: #f9fafb;
+        font-size: 15px;
+        margin-bottom: 18px;
+        transition: 0.2s;
+    }
+
+    .input-padrao:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37,99,235,0.25);
+        outline: none;
+    }
+
+    .btn-salvar {
+        background: #2563eb;
+        color: white;
+        padding: 12px 22px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        transition: .2s;
+    }
+
+    .btn-salvar:hover {
+        background: #1e40af;
+        transform: translateY(-2px);
+    }
+
+    .btn-cancelar {
+        background: #e5e7eb;
+        color: #1e293b;
+        padding: 12px 22px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: .2s;
+    }
+
+    .btn-cancelar:hover {
+        background: #cbd5e1;
+    }
+
+    .botoes-acao {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+    }
+</style>

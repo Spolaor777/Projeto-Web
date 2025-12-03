@@ -1,0 +1,58 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+@model IEnumerable<SistemaSuporte.Models.Usuario>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Usuários";
+}
+
+<div class="painel-dashboard">
+    <h1>Usuários</h1>
+    <p>Lista completa de usuários cadastrados.</p>
+
+    <table class="tabela-admin">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Tipo</th>
+                <th style="width: 180px;">Ações</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var u in Model) {
+                <tr>
+                    <td>@u.UsuarioId</td>
+                    <td>@u.Nome</td>
+                    <td>@u.Email</td>
+                    <td>@u.Tipo</td>
+
+                    <td>
+                        <a class="btn-acao visualizar"
+                           href="@Url.Action("Details", "AdminUsuarios", new { id = u.UsuarioId })">
+                            <i class="fa-solid fa-eye"></i>
+                        </a>
+
+                        <a class="btn-acao editar"
+                           href="@Url.Action("Edit", "AdminUsuarios", new { id = u.UsuarioId })">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+
+                        <a class="btn-acao excluir"
+                           href="@Url.Action("Delete", "AdminUsuarios", new { id = u.UsuarioId })"
+                           onclick="return confirm('Tem certeza que deseja excluir este usuário?')">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

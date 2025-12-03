@@ -1,0 +1,51 @@
+﻿@model SistemaSuporte.Models.Chamado
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Editar Chamado";
+    var statusLista = ViewBag.StatusLista as List<string>;
+    string statusAtual = ViewBag.StatusAtual as string ?? "Aberto";
+}
+
+<div class="painel-dashboard">
+    <h1>Editar Chamado</h1>
+
+    <form asp-action="Edit" asp-controller="AdminChamados" class="form-admin">
+        <input type="hidden" asp-for="ChamadoId" />
+
+        <div class="form-group">
+            <label>Título</label>
+            <input asp-for="Titulo" />
+        </div>
+
+        <div class="form-group">
+            <label>Descrição</label>
+            <textarea asp-for="Descricao"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Categoria</label>
+            <select asp-for="CategoriaId" asp-items="ViewBag.Categorias"></select>
+        </div>
+
+        <div class="form-group">
+            <label>Status</label>
+            <select asp-for="Status">
+                @foreach (var s in statusLista) {
+                    <option value="@s" selected="@(s == statusAtual)">
+                        @s
+                    </option>
+                }
+            </select>
+        </div>
+
+        <button class="btn-admin btn-admin-primary" type="submit">
+            Salvar
+        </button>
+
+        <a asp-action="Index" asp-controller="AdminChamados"
+           class="btn-admin btn-admin-secondary">
+            Voltar
+        </a>
+    </form>
+</div>

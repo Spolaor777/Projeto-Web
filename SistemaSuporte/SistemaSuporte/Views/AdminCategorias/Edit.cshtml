@@ -1,0 +1,32 @@
+﻿@model SistemaSuporte.Models.Categoria
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Editar Categoria";
+}
+
+<div class="painel-dashboard">
+
+    <h1>Editar Categoria</h1>
+
+    <form asp-action="Edit" asp-controller="AdminCategorias" class="form-admin">
+
+        <input type="hidden" asp-for="CategoriaId" />
+
+        <label>Nome da Categoria</label>
+        <input asp-for="NomeCategoria" />
+
+        <label>Descrição</label>
+        <textarea asp-for="DescricaoCategoria"></textarea>
+
+        <button class="btn-admin btn-admin-primary">Salvar</button>
+
+        <a asp-action="Index" asp-controller="AdminCategorias"
+           class="btn-admin btn-admin-secondary">
+            Voltar
+        </a>
+
+    </form>
+
+</div>
+

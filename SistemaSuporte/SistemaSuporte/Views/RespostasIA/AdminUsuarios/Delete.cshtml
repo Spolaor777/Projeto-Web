@@ -1,0 +1,26 @@
+﻿@model SistemaSuporte.Models.Usuario
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Excluir Usuário";
+}
+
+<div class="delete-box">
+
+    <h1>Excluir Usuário</h1>
+
+    <p>Tem certeza que deseja excluir <strong>@Model.Nome</strong>?</p>
+    <p><strong>Email:</strong> @Model.Email</p>
+    <p><strong>Tipo:</strong> @Model.Tipo</p>
+
+    <form asp-action="Delete" asp-controller="AdminUsuarios">
+        <input type="hidden" asp-for="UsuarioId" />
+
+        <button class="btn-delete-confirm">Excluir</button>
+
+        <a asp-action="Index" asp-controller="AdminUsuarios" class="btn-cancelar">
+            Cancelar
+        </a>
+    </form>
+
+</div>

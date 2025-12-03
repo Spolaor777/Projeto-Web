@@ -1,0 +1,54 @@
+﻿@model SistemaSuporte.Models.Chamado
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Detalhes do Chamado";
+}
+
+<div class="painel-dashboard">
+    <div class="details-box">
+        <h1>Detalhes do Chamado</h1>
+
+        <div class="details-item">
+            <strong>Título:</strong> <span>@Model.Titulo</span>
+        </div>
+
+        <div class="details-item">
+            <strong>Descrição:</strong> <span>@Model.Descricao</span>
+        </div>
+
+        <div class="details-item">
+            <strong>Categoria:</strong> <span>@Model.Categoria?.NomeCategoria</span>
+        </div>
+
+        <div class="details-item">
+            <strong>Usuário:</strong> <span>@Model.Usuario?.Nome (@Model.Usuario?.Email)</span>
+        </div>
+
+        <div class="details-item">
+            <strong>Status:</strong> <span>@Model.Status</span>
+        </div>
+
+        <div class="details-item">
+            <strong>Data de abertura:</strong>
+            <span>@Model.DataAbertura.ToString("dd/MM/yyyy HH:mm")</span>
+        </div>
+
+        @if (Model.DataFechamento != null) {
+            <div class="details-item">
+                <strong>Data de fechamento:</strong>
+                <span>@Model.DataFechamento?.ToString("dd/MM/yyyy HH:mm")</span>
+            </div>
+        }
+
+        <a asp-action="Edit" asp-controller="AdminChamados" asp-route-id="@Model.ChamadoId"
+           class="btn-admin btn-admin-primary">
+            Editar
+        </a>
+
+        <a asp-action="Index" asp-controller="AdminChamados"
+           class="btn-admin btn-admin-secondary">
+            Voltar
+        </a>
+    </div>
+</div>

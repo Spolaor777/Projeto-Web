@@ -1,0 +1,136 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SuporteAI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f3f6fb;
+            color: #1f2937;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 400px;
+            background: linear-gradient(180deg, #2563eb, #1e3a8a);
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            position: fixed;
+            flex-shrink: 0;
+            white-space: nowrap; /* impede quebra de linha */
+            box-sizing: border-box; /* evita somar padding à largura */
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
+
+        .menu a {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: background 0.3s;
+        }
+
+            .menu a:hover, .menu a.active {
+                background: rgba(255, 255, 255, 0.2);
+            }
+
+        .menu i {
+            margin-right: 10px;
+        }
+
+        .conteudo {
+            margin-left: 420px;
+            padding: 30px;
+            flex-grow: 1;
+        }
+
+        .rodape {
+            text-align: center;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .social {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+            .social a {
+                color: white;
+                text-decoration: none;
+            }
+
+        html {
+            overflow-y: scroll; /* força sempre a barra de rolagem */
+        }
+    </style>
+    @RenderSection("Styles", required: false)
+    
+
+
+</head>
+<body>
+    <aside class="sidebar">
+        <div>
+            <div class="logo">SuporteAI</div>
+            <nav class="menu">
+                <a asp-controller="Cliente" asp-action="Dashboard"
+                   class="@(ViewContext.RouteData.Values["action"]?.ToString() == "Dashboard" ? "active" : "")">
+                    <i class="fa-solid fa-chart-line"></i> Dashboard
+                </a>
+
+                <a asp-controller="Chamados" asp-action="Create"
+                   class="@(ViewContext.RouteData.Values["action"]?.ToString() == "Create" ? "active" : "")">
+                    <i class="fa-solid fa-plus-circle"></i> Novo Chamado
+                </a>
+
+                <a asp-controller="Chamados" asp-action="Index"
+                   class="@(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")">
+                    <i class="fa-solid fa-folder-open"></i> Meus Chamados
+                </a>
+
+                <a asp-controller="Cliente" asp-action="Configuracoes"
+                   class="@(ViewContext.RouteData.Values["action"]?.ToString() == "Configuracoes" ? "active" : "")">
+                    <i class="fa-solid fa-gear"></i> Configurações
+                </a>
+
+            </nav>
+        </div>
+        <div>
+            <div class="social">
+                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+            <div class="rodape">© 2025 SuporteAI</div>
+        </div>
+    </aside>
+
+    <main class="conteudo">
+        @RenderBody()
+    </main>
+</body>
+</html>
+

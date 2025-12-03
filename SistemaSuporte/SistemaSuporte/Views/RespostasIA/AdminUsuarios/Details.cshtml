@@ -1,0 +1,29 @@
+﻿@model SistemaSuporte.Models.Usuario
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Detalhes do Usuário";
+}
+
+<div class="details-box">
+
+    <h1>Detalhes do Usuário</h1>
+
+    <div class="details-item">
+        <strong>Nome:</strong> <span>@Model.Nome</span>
+    </div>
+
+    <div class="details-item">
+        <strong>Email:</strong> <span>@Model.Email</span>
+    </div>
+
+    <div class="details-item">
+        <strong>Tipo:</strong> <span>@Model.Tipo</span>
+    </div>
+
+    <a asp-action="Index" asp-controller="AdminUsuarios" class="btn-voltar-inline">
+        Voltar
+    </a>
+
+</div>
+

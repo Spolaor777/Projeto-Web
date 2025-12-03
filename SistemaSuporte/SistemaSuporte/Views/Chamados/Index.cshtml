@@ -1,0 +1,59 @@
+﻿@model IEnumerable<SistemaSuporte.Models.Chamado>
+@{
+    Layout = "~/Views/Shared/_LayoutCliente.cshtml";
+    ViewData["Title"] = "Meus Chamados";
+}
+
+<section class="painel">
+    <h1>📂 Meus Chamados</h1>
+    <p class="descricao">Acompanhe todos os chamados que você já abriu e veja o andamento de cada um.</p>
+
+    @if (!Model.Any())
+    {
+        <div class="sem-chamados">
+            <i class="fa-solid fa-inbox"></i>
+            <p>Você ainda não abriu nenhum chamado.</p>
+            <a asp-controller="Chamados" asp-action="Create" class="botao-abrir-chamado">Abrir novo chamado</a>
+        </div>
+    }
+    else
+    {
+        <table class="tabela-chamados">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Categoria</th>
+                    <th>Status</th>
+                    <th>Data de Abertura</th>
+                    <th>Ações</th> <!-- coluna para detalhes -->
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Titulo</td>
+                        <td>@item.Categoria?.NomeCategoria</td>
+                        <td>
+                            <span class="status @(item.Status == "Aberto" ? "aberto" :
+                                                          item.Status == "Respondido pela IA" ? "respondido" :
+                                                          item.Status == "Pendente" ? "pendente" :
+                                                          "fechado")">
+                        @item.Status
+                    </span>
+
+                </td>
+                <td>@item.DataAbertura.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.ChamadoId" class="btn-ia-lista">
+                        <i class="fa-solid fa-robot"></i> Resolver com IA
+                    </a>
+
+                </td>
+
+            </tr>
+                        }
+            </tbody>
+        </table>
+    }
+</section>

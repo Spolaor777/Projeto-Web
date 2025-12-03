@@ -1,0 +1,43 @@
+﻿@model SistemaSuporte.Models.Chamado
+
+@{
+    Layout = "~/Views/Shared/_LayoutCliente.cshtml";
+    ViewData["Title"] = "Novo Chamado";
+}
+
+<div class="painel">
+    <h1>Abrir Novo Chamado</h1>
+    <p>Descreva seu problema ou solicitação. Nossa equipe ou a IA de suporte irá atendê-lo em breve.</p>
+
+    <form asp-action="Create" method="post" class="form-chamado">
+        <div class="campo">
+            <label for="Titulo">Título</label>
+            <input asp-for="Titulo" class="entrada" placeholder="Digite um título para o chamado" required />
+            <span asp-validation-for="Titulo" class="erro"></span>
+        </div>
+
+        <div class="campo">
+            <label for="Descricao">Descrição</label>
+            <textarea asp-for="Descricao" class="entrada" rows="4" placeholder="Descreva o problema ou solicitação" required></textarea>
+            <span asp-validation-for="Descricao" class="erro"></span>
+        </div>
+
+        <div class="campo">
+            <label for="CategoriaId">Categoria</label>
+            <select asp-for="CategoriaId" class="entrada" asp-items="ViewBag.Categorias" required>
+                <option value="">Selecione uma categoria</option>
+            </select>
+            <span asp-validation-for="CategoriaId" class="erro"></span>
+        </div>
+
+        <div class="botoes">
+            <button type="submit" class="btn-enviar">Enviar</button>
+            <a asp-controller="Cliente" asp-action="Dashboard" class="btn-cancelar">Cancelar</a>
+        </div>
+    </form>
+</div>
+
+@section Styles {
+    
+}
+

@@ -1,0 +1,40 @@
+﻿@model SistemaSuporte.Models.ViewModels.DashboardViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Painel do Administrador";
+}
+
+<section class="dashboard-wrapper">
+    <h1 class="titulo-dashboard">Painel do Administrador</h1>
+    <p class="subtitulo-dashboard">Visão geral do sistema</p>
+
+    <div class="cards-dashboard">
+
+        <div class="card-dashboard">
+            <span class="titulo-card">Total de Chamados</span>
+            <span class="valor-card">@Model.TotalChamados</span>
+        </div>
+
+        <div class="card-dashboard">
+            <span class="titulo-card">Chamados Abertos</span>
+            <span class="valor-card">@Model.ChamadosAbertos</span>
+        </div>
+
+        <div class="card-dashboard">
+            <span class="titulo-card">Chamados Fechados</span>
+            <span class="valor-card">@Model.ChamadosFechados</span>
+        </div>
+
+        <div class="card-dashboard">
+            <span class="titulo-card">Total de Usuários</span>
+            <span class="valor-card">@Model.TotalUsuarios</span>
+        </div>
+
+        <div class="card-dashboard">
+            <span class="titulo-card">Total de Categorias</span>
+            <span class="valor-card">@Model.TotalCategorias</span>
+        </div>
+    </div>
+</section>
+

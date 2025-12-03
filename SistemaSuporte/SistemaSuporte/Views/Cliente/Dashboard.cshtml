@@ -1,0 +1,45 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutCliente.cshtml";
+    ViewData["Title"] = "Home";
+}
+
+<div class="painel">
+    <h1>Bem-vindo ao seu painel!</h1>
+    <p>Aqui você pode abrir novos chamados, acompanhar o andamento dos seus atendimentos e conversar com nossa IA de suporte.</p>
+    <a asp-controller="Chamados" asp-action="Create" class="botao-abrir-chamado">Abrir novo chamado</a>
+</div>
+
+@if (TempData["MensagemSucesso"] != null) {
+    <div id="toast-sucesso" class="toast-sucesso">
+        @TempData["MensagemSucesso"]
+    </div>
+
+    <script>
+        setTimeout(() => {
+            const toast = document.getElementById('toast-sucesso');
+            if (toast) {
+                toast.style.opacity = "0";
+                toast.style.transform = "translateY(-10px)";
+                setTimeout(() => toast.remove(), 500);
+            }
+        }, 3000);
+    </script>
+
+    <style>
+        .toast-sucesso {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #22c55e;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            transition: .5s;
+            z-index: 9999;
+        }
+    </style>
+}
+
+

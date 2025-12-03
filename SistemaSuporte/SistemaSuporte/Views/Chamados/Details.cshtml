@@ -1,0 +1,242 @@
+﻿@model SistemaSuporte.Models.Chamado
+@{
+    Layout = "~/Views/Shared/_LayoutCliente.cshtml";
+    ViewData["Title"] = "Detalhes do Chamado";
+}
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+    .card-chamado {
+        background: #ffffff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+        margin-top: 25px;
+    }
+
+    .titulo-card {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: #2563eb;
+    }
+
+    .linha {
+        margin-bottom: 10px;
+    }
+
+        .linha strong {
+            color: #1e293b;
+        }
+
+    #resposta-ia-box {
+        background: #f8fafc;
+        padding: 15px;
+        border-left: 4px solid #3b82f6;
+        border-radius: 6px;
+        margin-top: 20px;
+        display: none;
+    }
+
+    #loading {
+        margin-top: 15px;
+        display: none;
+    }
+
+    #erro-ia {
+        display: none;
+        margin-top: 15px;
+    }
+
+    .botoes-acao {
+        margin-top: 25px;
+        display: flex;
+        gap: 12px;
+    }
+
+    .btn-resolver {
+        background: #22c55e;
+        color: white;
+        padding: 10px 18px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: .2s;
+    }
+
+        .btn-resolver:hover {
+            background: #16a34a;
+        }
+
+</style>
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<section class="painel-detalhes">
+
+    <div class="cabecalho-detalhes">
+        <div>
+            <h1>Detalhes do Chamado</h1>
+            <p class="descricao">
+                Aqui você vê todas as informações do chamado e pode pedir ajuda da nossa IA.
+            </p>
+        </div>
+
+        <span class="badge-status @(Model.Status == "Aberto" ? "aberto" :
+                                   Model.Status == "Respondido pela IA" ? "respondido" : "fechado")">
+            @Model.Status
+        </span>
+    </div>
+
+    <div class="card-detalhes">
+
+        <div class="grid-info">
+            <div class="info-item">
+                <span class="label">Usuário</span>
+                <span class="valor">@Model.Usuario?.Email</span>
+            </div>
+
+            <div class="info-item">
+                <span class="label">Categoria</span>
+                <span class="valor">@Model.Categoria?.NomeCategoria</span>
+            </div>
+
+            <div class="info-item">
+                <span class="label">Título</span>
+                <span class="valor">@Model.Titulo</span>
+            </div>
+
+            <div class="info-item info-full">
+                <span class="label">Descrição</span>
+                <span class="valor">@Model.Descricao</span>
+            </div>
+
+            <div class="info-item">
+                <span class="label">Data de Abertura</span>
+                <span class="valor">@Model.DataAbertura.ToString("dd/MM/yyyy HH:mm")</span>
+            </div>
+        </div>
+
+        <!-- BLOCO DA IA -->
+        <div class="card-ia">
+            <div class="card-ia-header">
+                <div>
+                    <h2><i class="fa-solid fa-robot"></i> Assistente IA</h2>
+                    <p>Gere automaticamente uma sugestão de solução para este chamado.</p>
+                </div>
+
+                <button id="btn-ia" class="botao-ia" data-chamado="@Model.ChamadoId">
+                    <i class="fa-solid fa-robot"></i> Gerar resposta com IA
+                </button>
+
+            </div>
+
+            <div id="loading" class="loading-ia d-none">
+                <div class="spinner"></div>
+                <span>Gerando resposta com IA, aguarde...</span>
+            </div>
+
+            <div id="resposta-ia" class="caixa-resposta-ia d-none">
+                <h4><i class="fa-solid fa-robot"></i> Resposta da IA</h4>
+                <div id="conteudo-resposta"></div>
+            </div>
+
+
+            <div class="acoes-pos-ia">
+                <span>A resposta resolveu seu problema?</span>
+                <div class="botoes-resposta">
+
+                    <!-- SIM, RESOLVEU → fecha chamado e vai para avaliação -->
+                    <a asp-controller="FormularioAvaliacoes"
+                       asp-action="Create"
+                       asp-route-chamadoId="@Model.ChamadoId"
+                       class="btn-verde">
+                        Sim, resolveram 👍
+                    </a>
+
+
+
+                    <!-- NÃO RESOLVEU → marca pendente e abre edição -->
+                    <form asp-action="MarcarComoNaoResolvido" asp-controller="Chamados" method="post">
+                        <input type="hidden" name="id" value="@Model.ChamadoId" />
+                        <button type="submit" class="btn-cinza">
+                            Não, ainda preciso de ajuda
+                        </button>
+                    </form>
+
+
+                </div>
+            </div>
+
+            </div>
+
+            <div id="erro-ia" class="erro-ia alert-erro d-none">
+                <strong>Erro:</strong> <span id="mensagem-erro"></span>
+            </div>
+        </div>
+
+        <div class="acoes-rodape">
+            <a href="/Chamados" class="btn-cinza">Voltar</a>
+        <a href="/Chamados/Edit/@Model.ChamadoId" class="btn-editar-chamado">
+            <i class="fa-solid fa-pen-to-square"></i> Editar chamado
+        </a>
+
+        </div>
+    
+
+</section>
+
+<script>
+    $(document).ready(function () {
+
+        $('#btn-ia').click(function () {
+
+            var chamadoId = $(this).data('chamado');
+
+            $('#loading').removeClass('d-none');
+            $('#resposta-ia').addClass('d-none');
+            $('#erro-ia').addClass('d-none');
+            $('#btn-ia').prop('disabled', true);
+
+            $.ajax({
+                url: '@Url.Action("GerarRespostaIA", "RespostasIA")',
+                type: 'POST',
+                data: { chamadoId: chamadoId },
+
+                success: function (data) {
+
+                    $('#loading').addClass('d-none');
+                    $('#btn-ia').prop('disabled', false);
+
+                    if (data.sucesso) {
+                        $('#conteudo-resposta').html(
+                            data.resposta.replace(/\n/g, '<br>')
+                        );
+                        $('#resposta-ia').removeClass('d-none');
+
+                        // se não quiser recarregar mais a página, pode remover esse setTimeout
+                        // setTimeout(() => location.reload(), 2000);
+
+                    } else {
+                        $('#mensagem-erro').text(data.mensagem);
+                        $('#erro-ia').removeClass('d-none');
+                    }
+                },
+
+                error: function (xhr, status, error) {
+                    $('#loading').addClass('d-none');
+                    $('#btn-ia').prop('disabled', false);
+                    $('#mensagem-erro').text('Erro: ' + error);
+                    $('#erro-ia').removeClass('d-none');
+                }
+            });
+        });
+    });
+</script>

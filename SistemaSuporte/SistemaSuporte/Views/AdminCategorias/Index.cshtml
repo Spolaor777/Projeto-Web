@@ -1,0 +1,56 @@
+﻿@model IEnumerable<SistemaSuporte.Models.Categoria>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Categorias";
+}
+
+<div class="painel-dashboard">
+    <h1>Categorias</h1>
+    <p>Aqui estão todas as categorias cadastradas.</p>
+
+    <!-- BOTÃO DE CRIAR NOVA -->
+    <a href="@Url.Action("Create", "AdminCategorias")" class="btn-add">
+        <i class="fa-solid fa-plus"></i> Nova Categoria
+    </a>
+
+    <table class="tabela-admin">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome da Categoria</th>
+                <th style="width: 180px;">Ações</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var cat in Model) {
+                <tr>
+                    <td>@cat.CategoriaId</td>
+                    <td>@cat.NomeCategoria</td>
+
+                    <td>
+                        <!-- VISUALIZAR -->
+                        <a class="btn-acao visualizar"
+                           href="@Url.Action("Details", "AdminCategorias", new { id = cat.CategoriaId })">
+                            <i class="fa-solid fa-eye"></i>
+                        </a>
+
+                        <!-- EDITAR -->
+                        <a class="btn-acao editar"
+                           href="@Url.Action("Edit", "AdminCategorias", new { id = cat.CategoriaId })">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+
+                        <!-- EXCLUIR -->
+                        <a class="btn-acao excluir"
+                           href="@Url.Action("Delete", "AdminCategorias", new { id = cat.CategoriaId })"
+                           onclick="return confirm('Tem certeza que deseja excluir esta categoria?')">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

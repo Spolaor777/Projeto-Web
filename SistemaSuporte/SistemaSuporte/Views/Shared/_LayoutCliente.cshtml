@@ -1,0 +1,313 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>INSIGHT AI</title>
+    <link rel="icon" type="image/png" href="~/img/logo.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/cliente.css" asp-append-version="true" />
+
+
+
+    <style>
+        /* ======== Tema Branco com Azul ======== */
+        body {
+            background-color: #f4f7fc;
+            color: #1a1a1a;
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Painel Principal */
+        .painel {
+            width: 90%;
+            max-width: 1000px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 40px 50px;
+            border-radius: 20px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+        }
+
+            .painel h1 {
+                color: #2563eb; /* Azul do menu */
+                font-size: 1.9rem;
+                margin-bottom: 15px;
+                font-weight: 700;
+            }
+
+            .painel p {
+                color: #555;
+                font-size: 1rem;
+                margin-bottom: 30px;
+            }
+
+        /* Campos de formulário */
+        label {
+            display: block;
+            margin-bottom: 6px;
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #cbd5e1;
+            background-color: #f9fafb;
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 20px;
+            transition: 0.2s;
+        }
+
+            input[type="text"]:focus,
+            textarea:focus,
+            select:focus {
+                border-color: #2563eb;
+                box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+                outline: none;
+            }
+
+        /* Botões */
+        .btn-enviar,
+        .btn-cancelar,
+        .botao-abrir-chamado {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .btn-enviar,
+        .botao-abrir-chamado {
+            background-color: #2563eb;
+            color: #fff;
+        }
+
+            .btn-enviar:hover,
+            .botao-abrir-chamado:hover {
+                background-color: #1e40af;
+                transform: translateY(-2px);
+            }
+
+        .btn-cancelar {
+            background-color: #e2e8f0;
+            color: #1e3a8a;
+        }
+
+            .btn-cancelar:hover {
+                background-color: #cbd5e1;
+            }
+
+        /* Tabela de chamados */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+        }
+
+            table th {
+                background-color: #2563eb;
+                color: white;
+                padding: 14px;
+                text-align: left;
+            }
+
+            table td {
+                padding: 12px;
+                border-bottom: 1px solid #e2e8f0;
+                color: #333;
+            }
+
+            table tr:hover {
+                background-color: #f1f5ff;
+            }
+
+        /* Layout geral do conteúdo */
+        .conteudo {
+            padding: 40px;
+            min-height: 100vh;
+            background-color: #f4f7fc;
+            transition: all 0.3s ease;
+        }
+
+        /* Home */
+        .painel.home {
+            text-align: center;
+        }
+
+            .painel.home p {
+                color: #444;
+            }
+
+        /* Responsividade */
+         (max-width: 768px) {
+            .painel
+
+        {
+            width: 95%;
+            padding: 25px;
+        }
+
+        .menu-lateral .logo {
+            display: flex;
+            flex-direction: column; /* imagem em cima, texto embaixo */
+            align-items: center;
+            gap: 8px;
+            padding: 20px 0;
+        }
+
+        .menu-lateral .logo-img {
+            width: 80px;
+            height: auto;
+            filter: drop-shadow(0 0 10px rgba(0,0,0,0.25));
+        }
+
+        .menu-lateral .logo-text {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+            .menu-lateral .logo-text span {
+                color: #A5B4FC;
+            }
+
+
+        
+    </style>
+
+
+
+    @RenderSection("Styles", required: false)
+
+</head>
+
+<body>
+
+    <!-- MENU LATERAL -->
+    <aside class="menu-lateral">
+        <div>
+            <div class="logo">
+                <img src="~/img/logo.png" alt="InsightAI" class="logo-img" />
+                <span class="logo-text">
+                    INSIGHT<span> AI</span>
+                </span>
+            </div>
+
+
+            
+            <ul>
+                <li class="ativo" data-url="@Url.Action("Dashboard", "Cliente")">
+                    <i class="fa-solid fa-house"></i> Home
+                </li>
+
+                <li data-url="@Url.Action("Create", "Chamados")"><i class="fa-solid fa-plus-circle"></i> Novo Chamado</li>
+                <li data-url="@Url.Action("Index", "Chamados")"><i class="fa-solid fa-folder-open"></i> Meus Chamados</li>
+                
+                <li>
+                    <a asp-controller="Login" asp-action="Logout" style="color:inherit;text-decoration:none;">
+                        <i class="fa-solid fa-right-from-bracket"></i> Sair
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        
+    </aside>
+
+    
+   
+    <main class="conteudo" id="conteudoPrincipal">
+        @RenderBody()
+
+        
+    </main>
+
+
+    
+
+   
+    <script>
+        function configurarLinksMenu() {
+            const links = document.querySelectorAll(".menu-lateral ul li[data-url]");
+            const conteudoPrincipal = document.querySelector("#conteudoPrincipal");
+
+            links.forEach(item => {
+                item.addEventListener("click", async () => {
+                    if (item.classList.contains("carregando")) return;
+
+                    const url = item.getAttribute("data-url");
+                    item.classList.add("carregando");
+                    conteudoPrincipal.style.opacity = "0.3";
+
+                    // Atualiza visual do menu
+                    links.forEach(li => li.classList.remove("ativo"));
+                    item.classList.add("ativo");
+
+                    try {
+                        const resposta = await fetch(url, { headers: { "X-Requested-With": "XMLHttpRequest" } });
+                        const html = await resposta.text();
+
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(html, "text/html");
+                        const novoConteudo = doc.querySelector(".painel") || doc.body;
+
+                        conteudoPrincipal.innerHTML = novoConteudo.outerHTML;
+                        conteudoPrincipal.style.opacity = "1";
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+
+                        configurarLinksMenu(); // reanexa eventos
+                    } catch (erro) {
+                        console.error("Erro ao carregar:", erro);
+                        conteudoPrincipal.style.opacity = "1";
+                    } finally {
+                        item.classList.remove("carregando");
+                    }
+                });
+            });
+        }
+
+            function marcarMenuAtivoPelaUrl() {
+            const links = document.querySelectorAll(".menu-lateral ul li[data-url]");
+            const urlAtual = window.location.pathname.toLowerCase();
+
+            links.forEach(li => {
+                const url = li.getAttribute("data-url").toLowerCase();
+
+                if (urlAtual === url) {
+                    li.classList.add("ativo");
+                } else {
+                    li.classList.remove("ativo");
+                }
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            configurarLinksMenu();
+            marcarMenuAtivoPelaUrl(); // 🔥 marcando o menu correto ao carregar a página
+        });
+
+        document.addEventListener("DOMContentLoaded", configurarLinksMenu);
+    </script>
+
+
+
+</body>
+</html>
+

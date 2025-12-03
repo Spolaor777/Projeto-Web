@@ -1,0 +1,49 @@
+﻿@model SistemaSuporte.Models.FormularioAvaliacao
+@{
+    Layout = "~/Views/Shared/_LayoutCliente.cshtml";
+    ViewData["Title"] = "Avaliar Atendimento";
+}
+
+<link rel="stylesheet" href="~/css/avaliacao.css" />
+
+<div class="painel avaliacao">
+    <h1>Avalie nosso atendimento</h1>
+
+    <form asp-controller="FormularioAvaliacoes" asp-action="Create" method="post">
+
+        <input type="hidden" asp-for="ChamadoId" />
+
+        <!-- ESTRELAS -->
+        <div class="estrelas-container">
+            <div class="stars">
+
+                <input type="radio" id="star5" name="Satisfacao" value="5" />
+                <label for="star5">★</label>
+
+                <input type="radio" id="star4" name="Satisfacao" value="4" />
+                <label for="star4">★</label>
+
+                <input type="radio" id="star3" name="Satisfacao" value="3" />
+                <label for="star3">★</label>
+
+                <input type="radio" id="star2" name="Satisfacao" value="2" />
+                <label for="star2">★</label>
+
+                <input type="radio" id="star1" name="Satisfacao" value="1" />
+                <label for="star1">★</label>
+
+            </div>
+        </div>
+
+        <!-- COMENTÁRIO -->
+        <div class="campo">
+            <label>Comentário:</label>
+            <textarea asp-for="Comentario"></textarea>
+        </div>
+
+        <button type="submit" class="btn-enviar">Enviar avaliação</button>
+
+    </form>
+</div>
+
+

@@ -1,0 +1,229 @@
+﻿@model SistemaSuporte.Models.Usuario
+
+@{
+    Layout = "_LayoutLogin";
+    ViewData["Title"] = "Criar Conta";
+}
+
+<div class="area-create">
+
+    <div class="topo-create">
+        <img src="~/img/logo2.png" alt="Logo" /> <!-- mesma logo do login -->
+    </div>
+
+    <div class="conteudo-create">
+        <h2>Criar Conta</h2>
+        <p class="subtitulo">Preencha seus dados para registrar-se no sistema</p>
+
+        <form method="post">
+
+            <div class="grupo-formulario">
+                <label>Nome</label>
+                <input type="text" name="Nome" placeholder="Digite seu nome completo" required />
+            </div>
+
+            <div class="grupo-formulario">
+                <label>E-mail</label>
+                <input type="email" name="Email" placeholder="Digite seu e-mail" required />
+                <span asp-validation-for="Email" class="erro"></span>
+            </div>
+
+            <div class="grupo-formulario">
+                <label>Senha</label>
+                <input type="password" name="Senha" minlength="4" placeholder="Digite sua senha" required />
+               
+
+            </div>
+
+            <div class="grupo-formulario">
+                <label>Tipo de Usuário</label>
+                <select name="Tipo" required>
+                    <option value="">Selecione o perfil</option>
+                    <option value="cliente">Cliente</option>
+                    <option value="admin">Administrador</option>
+                </select>
+            </div>
+
+
+
+            <div class="termos-container">
+                <input type="checkbox" id="aceitarTermos" name="aceitarTermos" required />
+                <label for="aceitarTermos">
+                    Aceito os
+                    <a href="/pdf/TERMO DE USO DE DADOS.pdf" target="_blank">
+                        termos de uso
+                    </a>
+                </label>
+            </div>
+
+
+
+            <button type="submit" class="botao-criar">Criar Conta</button>
+
+        </form>
+
+        <p class="texto-login">
+            Já possui conta? <a href="/Login/Index">Fazer login</a>
+        </p>
+
+    </div>
+</div>
+
+
+<style>
+
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #0f172a, #1e293b);
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    /* CARD PRINCIPAL */
+    .area-create {
+        width: 420px;
+        background: #1e293b;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    }
+
+    /* TOPO AZUL COM LOGO */
+    .topo-create {
+        height: 160px;
+        background: linear-gradient(135deg, #2563eb, #3b82f6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .topo-create img {
+            width: 130px;
+            filter: drop-shadow(0px 0px 10px rgba(0,0,0,0.35));
+        }
+
+    /* CONTEÚDO INTERNO */
+    .conteudo-create {
+        padding: 32px;
+    }
+
+    h2 {
+        text-align: center;
+        margin: 0 0 10px 0;
+        font-size: 26px;
+        color: #ffffff;
+    }
+
+    .subtitulo {
+        text-align: center;
+        color: #94a3b8;
+        margin-bottom: 25px;
+        font-size: 14px;
+    }
+
+    /* GRUPOS DE FORM */
+    .grupo-formulario {
+        margin-bottom: 18px;
+    }
+
+        .grupo-formulario label {
+            color: #cbd5e1;
+            margin-bottom: 6px;
+            display: block;
+            font-weight: 600;
+        }
+
+        .grupo-formulario input,
+        .grupo-formulario select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            background: #0f172a;
+            color: white;
+            font-size: 15px;
+        }
+
+            .grupo-formulario input::placeholder {
+                color: #94a3b8;
+            }
+
+            .grupo-formulario input:focus,
+            .grupo-formulario select:focus {
+                border-color: #3b82f6;
+                box-shadow: 0 0 0 2px rgba(59,130,246,0.3);
+                outline: none;
+            }
+
+    /* TERMO DE USO */
+    .termos-container {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #cbd5e1;
+        font-size: 14px;
+        margin-top: 5px;
+        margin-bottom: 20px; /* Espaço antes do botão */
+    }
+
+        .termos-container a {
+            color: #3b82f6;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+    /* BOTÃO CRIAR CONTA */
+    .botao-criar {
+        width: 100%;
+        padding: 12px;
+        background: #3b82f6;
+        border: none;
+        border-radius: 8px;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 16px;
+        transition: .2s;
+    }
+
+        .botao-criar:hover {
+            background: #2563eb;
+        }
+
+    /* Rodapé de login */
+    .texto-login {
+        margin-top: 18px;
+        text-align: center;
+        color: #cbd5e1;
+    }
+
+        .texto-login a {
+            color: #3b82f6;
+            font-weight: 600;
+        }
+
+    .erro {
+        color: #ff6b6b;
+        font-size: 0.85rem;
+        margin-top: 4px;
+        display: block;
+        animation: fadeIn .3s ease;
+        font-weight: 500;
+    }
+
+    
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+</style>
+
+
+

@@ -1,0 +1,169 @@
+﻿@{
+    Layout = "_LayoutLogin";
+    ViewData["Title"] = "Login";
+}
+
+
+<style>
+    /* ----- Fundo geral ----- */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* -------- CARD DO LOGIN -------- */
+.area-login {
+    width: 380px;
+    background: #1e293b;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    overflow: hidden;
+}
+
+/* ----- Topo azul com imagem ----- */
+.topo-login {
+    height: 160px;
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-login {
+    width: 130px;
+    filter: drop-shadow(0px 0px 10px rgba(0,0,0,0.35));
+}
+
+/* ----- Conteúdo abaixo ----- */
+.conteudo-login {
+    padding: 32px;
+}
+
+h2 {
+    text-align: center;
+    margin: 0 0 10px 0;
+    font-size: 26px;
+    color: #ffffff;
+}
+
+.subtitulo {
+    text-align: center;
+    color: #94a3b8;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+/* ----- Inputs ----- */
+.grupo-formulario {
+    margin-bottom: 18px;
+}
+
+.grupo-formulario label {
+    color: #cbd5e1;
+    margin-bottom: 6px;
+    display: block;
+    font-weight: 600;
+}
+
+.grupo-formulario input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    background: #0f172a;
+    color: white;
+}
+
+.grupo-formulario input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59,130,246,0.3);
+    outline: none;
+}
+
+/* ----- Botão ----- */
+.botao-entrar {
+    width: 100%;
+    padding: 12px;
+    background: #3b82f6;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 16px;
+    transition: .2s;
+}
+
+.botao-entrar:hover {
+    background: #2563eb;
+}
+
+/* Mensagem de erro */
+.erro-mensagem {
+    text-align: center;
+    color: #f87171;
+    margin-top: 15px;
+}
+
+/* Criar conta */
+.texto-criar-conta {
+    margin-top: 18px;
+    text-align: center;
+    color: #cbd5e1;
+}
+
+.texto-criar-conta a {
+    color: #3b82f6;
+    font-weight: 600;
+}
+
+</style>
+
+
+
+
+
+
+<link rel="stylesheet" href="~/css/login.css" />
+
+<div class="area-login">
+
+    <div class="topo-login">
+        <img src="~/img/logo2.png" class="logo-login" />
+    </div>
+
+    <div class="conteudo-login">
+        <h2>Entrar</h2>
+        <p class="subtitulo">Use suas credenciais para acessar o sistema</p>
+
+        <form method="post">
+            <div class="grupo-formulario">
+                <label>E-mail</label>
+                <input type="email" name="email" placeholder="Digite seu e-mail" required />
+            </div>
+
+            <div class="grupo-formulario">
+                <label>Senha</label>
+                <input type="password" name="senha" placeholder="Digite sua senha" required />
+            </div>
+
+            <button type="submit" class="botao-entrar">Entrar</button>
+
+            @if (ViewBag.Erro != null)
+            {
+                <div class="erro-mensagem">@ViewBag.Erro</div>
+            }
+        </form>
+
+        <p class="texto-criar-conta">
+            Não possui conta? <a href="/Usuarios/Create">Criar conta</a>
+        </p>
+    </div>
+
+</div>

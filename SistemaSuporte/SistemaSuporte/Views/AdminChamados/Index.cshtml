@@ -1,0 +1,62 @@
+﻿@model IEnumerable<SistemaSuporte.Models.Chamado>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Chamados";
+}
+
+<div class="painel-dashboard">
+    <h1>Chamados</h1>
+    <p>Aqui aparecem todos os chamados do sistema.</p>
+
+    <div class="botoes-exportacao">
+        <a class="btn-export pdf" href="@Url.Action("ExportarPDF", "AdminChamados")">
+            <i class="fa-solid fa-file-pdf"></i> Exportar PDF
+        </a>
+
+        <a class="btn-export xml" href="@Url.Action("ExportarExcel", "AdminChamados")">
+            <i class="fa-solid fa-file-code"></i> Exportar XLS
+        </a>
+    </div>
+
+    <table class="tabela-admin">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Categoria</th>
+                <th>Usuário</th>
+                <th>Status</th>
+                <th>Data</th>
+                <th style="width: 150px;">Ações</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model) {
+                <tr>
+                    <td>@item.Titulo</td>
+                    <td>@item.Categoria?.NomeCategoria</td>
+                    <td>@item.Usuario?.Nome</td>
+                    <td>@item.Status</td>
+                    <td>@item.DataAbertura.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td>
+                        <a class="btn-acao visualizar"
+                           href="@Url.Action("Details", "AdminChamados", new { id = item.ChamadoId })">
+                            <i class="fa-solid fa-eye"></i>
+                        </a>
+
+                        <a class="btn-acao editar"
+                           href="@Url.Action("Edit", "AdminChamados", new { id = item.ChamadoId })">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+
+                        <a class="btn-acao excluir"
+                           href="@Url.Action("Delete", "AdminChamados", new { id = item.ChamadoId })">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

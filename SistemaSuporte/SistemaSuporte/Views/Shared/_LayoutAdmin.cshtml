@@ -1,0 +1,111 @@
+﻿@{
+    Layout = null;
+}
+
+<!-- TESTANDO LAYOUT ADMIN -->
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>INSIGHT AI</title>
+    <link rel="icon" type="image/png" href="~/img/logo.png" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="@Url.Content("~/css/admin.css")?v=17" />
+
+
+
+
+    @RenderSection("Styles", required: false)
+</head>
+
+<body>
+
+    <!-- ===== SIDEBAR ADMIN ===== -->
+    <aside class="admin-sidebar">
+
+        <div class="admin-logo">
+            <img src="~/img/logo.png" alt="Logo" class="admin-logo-img" />
+
+            <div class="admin-logo-text">
+                <span class="logo-title">INSIGHT AI</span>
+                <span class="logo-subtitle">Painel do Administrador</span>
+            </div>
+        </div>
+
+
+
+
+
+
+  
+
+        <ul>
+            <li>
+                <a href="/Admin/Dashboard">
+                    <i class="fa-solid fa-house"></i> Home
+                </a>
+            </li>
+
+            <li>
+                <a href="/AdminCategorias/Index">
+                    <i class="fa-solid fa-tags"></i> Categorias
+                </a>
+            </li>
+
+            <li>
+                <a href="/AdminChamados/Index">
+                    <i class="fa-solid fa-folder-open"></i> Chamados
+                </a>
+            </li>
+
+            <li>
+                <a href="/AdminUsuarios/Index">
+                    <i class="fa-solid fa-users"></i> Usuários
+                </a>
+            </li>
+
+            <li>
+                <a href="/Login/Logout">
+                    <i class="fa-solid fa-right-from-bracket"></i> Sair
+                </a>
+            </li>
+        </ul>
+
+    </aside>
+
+
+    <!-- ===== ÁREA DE CONTEÚDO ===== -->
+    <main class="admin-content">
+        @RenderBody()
+    </main>
+
+
+    <!-- ===== DESTACAR ITEM ATIVO ===== -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const atual = window.location.pathname.toLowerCase();
+
+            const links = document.querySelectorAll(".admin-sidebar ul li a");
+
+            links.forEach(link => {
+                const href = link.getAttribute("href").toLowerCase();
+
+                if (atual === href || atual.startsWith(href)) {
+                    link.parentElement.classList.add("ativo");
+                }
+            });
+
+        });
+    </script>
+
+</body>
+</html>
+
+
